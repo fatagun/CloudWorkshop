@@ -4,14 +4,21 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Building reliable applications</title>
+		<title>Journey to Cloud</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/white.css">
+		<link rel="stylesheet" href="css/theme/black.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<style>
+			.reveal section img {
+				background: none;
+				border: none;
+			}
+		</style>
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -26,336 +33,160 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h2>BUILDING RELIABLE APPLICATIONS</h2>
+					<h2>Journey to Cloud</h2>
 				</section>
 
 				<section>
-					<a href="#/2">THREADING AND ASYNCHRONY</a> <br/>
-
-					<a href="#/3">MEMORY MANAGEMENT AND GARBAGE COLLECTION</a> <br/>
-
-					<a href="#/4">RECOMMENDATIONS</a> <br/>
+					<div><strong>Table of contents</strong></div>
+					<ul>
+						<li><a href="#/2">Application Transformation</a></li>
+						<li><a href="#/3">Application Modernization</a></li>
+						<li><a href="#/4">DevOps</a></li>
+						<li><a href="#/5">Cloud capabilities</a></li>
+						<li><a href="#/6">Demos</a></li>
+					</ul>
 				</section>
 
 				<section>
 					<section>
-						<h3>Threading and Asynchrony</h3>
+						<h3>Application Transformation</h3>
+					</section> 
+
+					<section data-background="images/apptransformation.png">
+						<!-- <h4>Transforming Applications</h4>
+						<ul>
+							<li>Complete Transformation</li>
+							<li>Continuous Transformation</li>
+							<li>Strategic transformation</li>
+						</ul> -->
 					</section>
+					<!--
 					<section>
-						<p>
-							In early operating systems (16 bit) there were no threads. when a program runs into Infinite loop, deadlock or some sort, whole machine freezes. 
-						</p>
-
-						<p>
-							It is not possible to determine if a program will halt or not. <a href="https://www.cs.odu.edu/~toida/nerzic/390teched/computability/unsolv-1.html" target="blank">Halting problem</a> is undecidable hence unsolvable.
-						</p>
-					</section>
-					<section>
-						<p>
-							With new 32 bit Operating Systems, threads were introduced. Threads do not make a system faster. 
-						</p>
-						<p>
-							Main purpose of threads is reliability and robustness.
-						</p>
-					</section>
-
-					<section>
-						<p>When a process is created, it gets its virtual address space and isolates Memory. When a thread is created it gets its own Memory and CPU isolation.
-						</p>
-
-						<p>Process can be thought of virtualization of RAM. Threading can be thought of virtualizing CPU.</p>
-
-						<p>Of course, virtualization comes with a cost.</p>
+						<h5>Complete Transformation</h5>
+						<div>
+							<ul>
+								<li>Modernization approach of rebuilding application using new technologies.</li>
+								<li>Complete transformation will sunset the current system.</li>
+								<li>Risk factor is high in this as entire process is migrated, which could impact the business operations.</li>
+							</ul>
+						</div>
 					</section>
 
 					<section>
-						<p>While OS is running, it can execute only one thread at a given time on a logical processor. </p>
-						<p>If you have a computer with 4 physical cores and 8 logical cores, you can only execute 8 threads at a given time, if you have hyperthreading enabled.</p>
+						<h5>Continuous Transformation</h5>
+						<div>
+							<ul>
+								<li>Component of the existing is replaced with a new technology and shifted as a individual  application to production.</li>
+								<li>Changes to be done through new technologies to address specific issue in application.</li>
+								<li>Risk factor is less compared to complete transformation as one block is moved at a time.</li>
+							</ul>
+						</div>
 					</section>
 
 					<section>
-						<p>Context switching occurs while OS is changing threads to execute.</p>
+						<h5>Strategic Transformation</h5>
+						<div>
+							<ul>
+								<li>Scenario based implementation where the change is minimal in existing system.</li>
+								<li>Helps companies to explore different technologies and opt for multiple technology stack for the applicati</li>
+								<li>Less risky and doesn’t require big team to monitor and manage the transformation.</li>
+							</ul>
+						</div>
+					</section>
+					-->
+				</section>
+
+				<section>
+
+					<section>
+						<h3>Application Modernization</h3>
+					</section> 
+					<section data-background="images/modernization_approaches.png">
+
+					</section>
+					<!--
+					<section>
+						<h4>Approaches</h4>
+						<ul>
+							<li>Encapsulate</li>
+							<li>Rehost</li>
+							<li>Replatform</li>
+							<li>Refactor</li>
+							<li>Rearchitect</li>
+							<li>Rebuild</li>
+							<li>Replace</li>
+						</ul>
 					</section>
 
 					<section>
-						<p>If you have a long running task or infinite loop, OS lets that thread runs for a while and then context switches. Runs another thread for a while, then switches back. It lets infinite loop a little bit more then preemptively terminates that thread.</p>
-
-						<p>Infinite loop is not supposed to kill Operating system.</p>
+						<h5>Encapsulate</h5>
+						<div>
+							<div>
+								To leverage and extend an application’s features and value, encapsulate data and 
+								functions in the application and make them available as services via an application programming interface (API). 
+								Implementation specifics and knowledge are hidden behind the interface.
+							</div>
+						</div>
 					</section>
 
 					<section>
-						<p>When a thread is created, OS creates a data structure which is called thread kernel object that contains information about priority, date created, state etc.</p>
-
-						<p>Thread has a CPU dependent data structure which is called register set context. All other data structures are CPU agnostic. But context requires information about CPU architecture.</p>
+						<h5>Rehost</h5>
+						<div>
+							Redeploy an application component to another physical, virtual or cloud infrastructure without recompiling, 
+							altering the application code, or modifying features and functions.
+						</div>
 					</section>
 
 					<section>
-						<p>Every thread has usermode and kernel mode data structure. This data structures contains information about exception block, TLS, GUI etc.</p>
+						<h5>Replatform</h5>
+						<div>
+							Migrate an application component to a new runtime platform. Make minimal changes to code to adapt to the new platform, 
+							but don’t change the code structure or the features and functions it provides.
+						</div>
+					</section>
+
+					<section>
+						<h5>Refactor</h5>
+						<div>
+							Restructure and optimize existing code without changing its external behavior to remove technical debt and to improve the component’s features and structure.
+						</div>
+					</section>
+
+					<section>
+						<h5>Rearchitect</h5>
+						<div>
+							Materially alter the application code so you can shift it to a new application architecture and fully exploit new and better capabilities of the application platform.
+						</div>
+					</section>
+
+					<section>
+						<h5>Rebuild</h5>
+						<div>
+							Rebuild or rewrite the application component from scratch while preserving its scope and specifications.
+						</div>
+					</section>
+				
+					<section>
+						<h5>Replace</h5>
+						<div>
+							Eliminate the former application component altogether and replace it, taking new requirements and needs into account.
+						</div>
+					</section>
+					-->
+				</section>
+
+				<section>
+					<section>
+						<h3>DevOps</h3>
+					</section>
+
+					<section data-background="images/devopsjourney.png"></section>
+					<section>
+
 					
-						<p>Exception handling occurs per thread, other threads are not aware of an exception happening in a thread.</p>
+
 					</section>
 
-					<section>
-						<p>Whenever a thread is created, it allocates memory for thread context, user mode data and stacks (user mode stack, kernel mode stack).
-						</p>
-					</section>
-
-					<section>
-						<p>A thread comes with lots of overhead. But it is required for a robust and reliable operating system.</p>
-					</section>
-
-					<section>
-						<p>A thread can be in two states. It is either waiting for IO or running and doing computation.</p>
-
-						<p>A thread is either CPU bound or IO bound. Most of the time IO bound.</p>
-					</section>
-
-					<section>
-						<p>IRP is IO request packet is created whenever a thread needs to do some IO. IRP is a data structure that contains handle of the resource, offset, number of bytes to read, offset of the byte array in the heap etc. </p>
-					</section>
-
-					<section>
-						<p>IRP moves in the path below and comes back.</p>
-						<p>User code -> Thread User mode -> Thread Kernel Mode -> OS (IRP dispatcher)-> Device driver</p>
-					</section>
-
-					<section>
-						<p>Each device has its own IRP queue. When the IRP is passed to device, the thread is blocked. However, it is not in runnable state. When IO device completes, it triggers IO completion port and wakes up thread and goes back to processing.</p>
-
-						<p>This is how synchronous IO workds.</p>
-					</section>
-
-					<section>
-						<p>In Asynchronous mode, IRP is sent down the stack, then thread goes back threadpool.</p>
-
-						<p>var result = await file.ReadyAsync();</p>
-
-						<p>This returns a Task that is supposed to complete in the future. Now the thread is not blocked and can do different things. Await allows thread to return immediately.</p>
-					</section>
-
-					<section>
-						<p>Once device finishes processing, it sends IRP back to IOCP then to CLR which spawns a thread continues processing your code.</p>
-					</section>
-
-					<section>
-						<p>Async functions are state machine objects.</p>
-					</section>
-
-					<section>
-						<p>Await captures thread current state as well as data and uses synchronization context so that correct application model is used.</p>
-					</section>
-
-					<section>
-						<p>Whenever you use async/await always use ConfigureAwait(false)</p>
-
-						<p>ConfigureAwait(false) ignores synchronization context, because some tasks may complete synchronously.</p>
-					</section>
-
-					<section>
-						<p>Using ConfigureAwait(false) can improve performance of async/await, independent of application model, asp.net, wcf, wpf etc.</p>
-					</section>
-
-					<section>
-						<p>Asynchrony improves responsiveness.</p>
-						<p>Async methods are non blocking.</p>
-					</section>
-
-					<section>
-						<p>Synchronous programming model: Threads performs each job in a sequence. Next job begins when previous ends.</p>
-					</section>
-
-					<section>
-						<p>Parallel programming model: Multiple thrads work at the same time, concurrently. Each thread performs a job.</p>
-					</section>
-
-					<section>
-						<p>Async programming model: A thread starts a job and while it is awaiting for a response, it starts next job and so forth.</p>
-					</section>
-				</section>
-
-				<section>
-					<section>
-						<h3>Memory Management and Garbage Collection</h3>
-					</section>
-
-					<section>
-						<a href="images/netmemoryposter.pdf">Memory Poster</a>
-					</section>
-
-					<section>
-						<p>Each process has its own virtual address space and all processes share the same physical memory as well as page file if there is any.</p>
-						<p>You can only work with virtual address space and never manipulate physical memory directly.</p>
-					</section>
-
-					<section>
-						<p>Virtual memory can be in 3 states:</p>
-						<p>Free: The block of memory has no references and available for allocations</p>
-						<p>Reserved: The block of memory is available and can not be used by another process but it has to be committed to be used.</p>
-						<p>Committed: The block of memory is assigned to physical memory and can be used.</p>
-					</section>
-
-					<section>
-						<p>Back in the days, while working with c/c++, it was developers reponsibility to work with memory, allocate and clean memory contents.</p>
-						<p>.net uses managed heap for memory management. Memory management is done via CLR.</p>
-					</section>
-
-					<section>
-						<p>Each time you create a new object, the common language runtime allocates memory for the object from the managed heap. As long as adress space is available in the managed heap, the runtime continues to allocate space for the new objects.</p>
-					</section>
-
-					<section>
-						<p>CLR garbage collector serves as an automatic memory manager. <br/>
-- Help you manage memory <br/>
-- Allocates objects on the managed heap efficiently. <br/>
-- Reclaims objects that are no longer being used.  <br/>
-- Provides memory safety</p>
-					</section>
-
-					<section>
-						<p>
-							Mark and sweep garbage collector. <br />
-							Mark : finding live objects <br />
-							Sweep : reclaim dead objects.<br />
-							Compact : Put live objects together. 
-						</p>
-
-						<p>
-							Virtual address space can get fragmented. This means in every garbage collection, there are holes or free blocks in the address space. 
-						</p>
-					</section>
-
-					<section>
-						<img src="images/loh-figure-1.jpg" />
-					</section>
-
-					<section>
-						<img src="images/loh-figure-2.jpg" />
-					</section>
-
-					<section>
-						<p>Managed heap uses generational garbage collection. <br/>
-						
-						Heap is divided in to regions and performs small collections often. <br/> 
-						Modern server apps cant live with frequent full GCs.
-						Frequently-touched regions should have many dead objects. </p>
-					</section>
-
-					<section>
-						<p>Objects in generation 0 and 1 are short lived objects, these generations are also known as ephemeral generations. Ephemeral generations are created on ephemeral segments of memory. The old ephemeral segments becomes the new generation 2 segment. </p>
-					</section>
-
-					<section>
-						<p>There are two kind of heaps. Small object heap and large object heap. Large object heap is used for managed objects greater than 85K.</p>
-					</section>
-
-					<section>
-						<p>Large object heap and small object heap stores managed objects on different segments of the memory. Whenever there is memory pressure, GC tries to free some space, runs garbage collection. If the result is not sufficient, VirtualAlloc is called to reserve more memory.</p>
-					</section>
-
-					<section>
-						<p>Same garbage collection algorithms apply to LOH. However there is no compaction since moving large objects around are intensive. However, it is possible to override this configuration.</p>
-					</section>
-
-					<section>
-						<p>In general GC occurs when on of the following occurs: Allocation exceeds the generation 0 and large object threshold. When System is low in memory. When GC.Collect is called. </p>
-						<p>LOH causes gen 2 garbage collection. Very large objects on LOH are usually arrays. 
-						</p>
-					</section>
-
-					<section>
-						<p>Full garbage collection is expensive, inefficient and performance killer.</p>
-					</section>
-
-					<section>
-						<p>Unmanaged resource references are also tracked by CLR. If your managed objects usess unmanaged objects you will have to clean after yourself. <br />You can either use Disposable Pattern or finalizers to work with unmanaged resources.</p>
-					</section>
-
-					<section>
-						<p>Most common unmanaged resources are network connections, database connections, files and windows.</p>
-					</section>
-
-					<section>
-						<p><a href="https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose" target="new">Disposable pattern</a> is a deterministic way to help clean up resources.</p>
-						<p>When Disposable pattern fails, <a href="http://dotnetmentors.com/c-sharp/implementing-finalize-and-dispose-of-net-framework.aspx" target="foo">finalizers</a> can be used to non-deterministically clean up resources.</p>
-					</section>
-
-					<section>
-						<p>When there is a finalizable object discovered to be dead, it is put in the finalizer queue. When it is being executed, it is put on to the f-reachable-queue.</p>
-
-						<p>When f-reachable-queue fills up faster than it can be processed, you will have memory leak.</p>
-					</section>
-
-					<section>
-						<p>There is workstation and server mode garbage collection. Each has its own trade offs.</p>
-						<p>There is concurrent and non concurrent garbage collection.</p>
-					</section>
-
-					<section>
-						<p>Workstation GC is mostly used for client apps such as WPF, console apps. There is a single thread that does garbage collection.</p>
-						<p>Workstation does not use all CPU cores. Server mode garbage collection utilizes all CPU cores.</p>
-					</section>
-
-					<section>
-						<p>On the server GC. CLR creates a GC thread per logical core. When GC is needed, these threads awakens all together and cleans up resources. One handicap here is context switching.</p>
-					</section>
-
-					<section>
-						<p>Garbage collection can be parallelized quite well. Each CPU allocates its memory, thus improves cache locality.</p>
-					</section>
-				</section>
-
-				<section>
-					<section>
-						<h3>Recommendations</h3>
-					</section>
-
-					<section>
-						<p>Use of weak references</p>
-					</section>
-
-					<section>
-						<p>Avoid full garbage collection.</p>
-					</section>
-
-					<section>
-						<p>Implement Disposable pattern where possible and try to avoid finalizers.</p>
-					</section>
-
-					<section>
-						<p>Do not block your threads.</p>
-					</section>
-
-					<section>
-						<p>Use async/await for IO bound operations.</p>
-					</section>
-
-					<section>
-						<p>Measure everything.</p>
-					</section>
-
-					<section>
-						<p>Minimize exceptions.</p>
-					</section>
-
-					<section>
-						<p>Reduce allocations. Minimize large object allocations.</p>
-					</section>
-
-					<section>
-						<p>use value types where it makes sense.</p>
-					</section>
-
-					<section>
-						<p>Cache where it makes senses.</p>
-					</section>
-
-					<section>
-						<p>Lazy initialize expensive resources.</p>
-					</section>
-
-					<section>
-						<p>Pool expensive resources.</p>
-					</section>
 				</section>
 
 
